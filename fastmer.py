@@ -356,8 +356,8 @@ else:
     median_identity = assembly_accuracy.get_median_segment_identity()
 
     # build header and output stats
-    header = ["assembly_name", "percent_identity", "qscore", "segment_median_qscore", "num_matches", "num_mismatches", "num_insertions", "num_deletions"]
-    stats = [args.assembly, "%.6f" % (100 * identity), "%.2f" % qscore(identity), "%.2f" % qscore(median_identity),
+    header = ["assembly_name", "reference_name", "percent_identity", "qscore", "segment_median_qscore", "num_matches", "num_mismatches", "num_insertions", "num_deletions"]
+    stats = [os.path.basename(args.assembly), os.path.basename(args.reference), "%.6f" % (100 * identity), "%.2f" % qscore(identity), "%.2f" % qscore(median_identity),
                                                                                   assembly_accuracy.get_matches(), 
                                                                                   assembly_accuracy.get_mismatches(), 
                                                                                   assembly_accuracy.get_insertions(),
