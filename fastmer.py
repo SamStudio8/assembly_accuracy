@@ -37,7 +37,9 @@ class AlignmentStats():
 
     def get_identity(self):
         alignment_length = self.matches + self.mismatches + self.insertions + self.deletions
-        return float(self.matches) / alignment_length
+        if alignment_length > 0:
+            return float(self.matches) / alignment_length
+        return 0
 
 class AssemblyAccuracy():
     
