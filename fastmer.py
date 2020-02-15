@@ -304,7 +304,7 @@ if args.temp_bam:
     out_bam = args.temp_bam
 
 with open(os.devnull, 'wb') as devnull:
-    mm2_cmd = "minimap2 -Y -a -x asm5 %s %s | samtools sort -T %s.tmp -o %s -" % (args.reference, args.assembly, out_bam, out_bam)
+    mm2_cmd = "minimap2 -Y -a -x asm5 %s %s --sam-hit-only | samtools sort -T %s.tmp -o %s -" % (args.reference, args.assembly, out_bam, out_bam)
     subprocess.check_call(mm2_cmd, stdout=devnull, stderr=devnull, shell=True)
 
     index_cmd = "samtools index %s" % (out_bam)
