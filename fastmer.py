@@ -350,12 +350,12 @@ for read in samfile:
         # accumulate stats for this aligned segment
         gather_basic_stats(edits_fp, read, query_aligned, ref_aligned, assembly_accuracy)
         gather_homopolymer_stats(query_aligned, ref_aligned, assembly_accuracy)
-        
+
         reads_consumed += 1
 
     except ValueError as inst:
         pass
-    
+
 if reads_consumed == 0:
     raise Exception("No valid alignments found. Try lowering --min-alignment-length or --min-mapping-quality.")
 
